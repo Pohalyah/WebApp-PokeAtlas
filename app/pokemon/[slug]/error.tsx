@@ -15,7 +15,7 @@ export default function PokemonErrorPage() {
       />
       <div className="mt-5 text-center text-sm theme-text-secondary">
         <Link href="/" className="font-medium theme-text-primary transition-colors hover:text-[color:var(--text-strong)]">
-          Retour a l'accueil
+          Retour a l&apos;accueil
         </Link>
       </div>
     </div>
