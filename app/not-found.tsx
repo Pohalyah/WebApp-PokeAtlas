@@ -7,7 +7,7 @@ export default function NotFoundPage() {
     <div className="page-shell py-12 sm:py-16">
       <EmptyState
         title="Cette fiche n&apos;existe pas"
-        description="Le Pokemon demande est introuvable ou indisponible pour le moment. Repars vers le Pokedex pour continuer l'exploration."
+        description="Le Pokemon demande est introuvable ou indisponible pour le moment. Repars vers le Pokedex pour continuer l&apos;exploration."
         ctaHref="/pokedex"
         ctaLabel="Retour au Pokedex"
       />
