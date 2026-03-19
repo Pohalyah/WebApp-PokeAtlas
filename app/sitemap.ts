@@ -21,6 +21,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "daily",
       priority: 0.9
     },
+    {
+      url: `${baseUrl}/mentions-legales`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.3
+    },
+    {
+      url: `${baseUrl}/confidentialite`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.3
+    },
+    {
+      url: `${baseUrl}/cookies`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.3
+    },
     ...pokemonIndex.map((pokemon) => ({
       url: `${baseUrl}/pokemon/${pokemon.slug}`,
       lastModified,

@@ -3,6 +3,7 @@ import { Manrope, Sora } from "next/font/google";
 
 import "@/app/globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { ThemeSwitcher } from "@/components/layout/theme-switcher";
 import { FavoritesProvider } from "@/components/providers/favorites-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
@@ -75,6 +76,7 @@ export default function RootLayout({
               />
               <SiteHeader />
               <main>{children}</main>
+              <SiteFooter />
               <ThemeSwitcher />
             </div>
           </FavoritesProvider>
