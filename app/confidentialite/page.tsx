@@ -1,4 +1,5 @@
 import { SectionCard } from "@/components/ui/section-card";
+import { adsenseClient } from "@/lib/adsense";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = {
@@ -7,12 +8,14 @@ export const metadata = {
 };
 
 export default function PrivacyPage() {
+  const hasAdsense = Boolean(adsenseClient);
+
   return (
     <div className="page-shell space-y-6 py-8 sm:py-10">
       <SectionCard
         eyebrow="Donnees personnelles"
         title="Politique de confidentialite"
-        description="Version adaptee au fonctionnement actuel du site. A completer si tu ajoutes plus tard analytics, publicites, compte utilisateur ou formulaire."
+        description="Version adaptee au fonctionnement actuel du site et a la monetisation via Google AdSense. A completer si tu ajoutes plus tard d autres outils tiers ou des comptes utilisateurs."
       >
         <div className="space-y-4 text-sm leading-7 theme-text-secondary">
           <p>
@@ -24,6 +27,15 @@ export default function PrivacyPage() {
           <p>
             Les donnees encyclopediques Pokemon affichees sur le site sont recuperees depuis des sources externes publiques, notamment PokeAPI, et ne constituent pas des donnees personnelles.
           </p>
+          {hasAdsense ? (
+            <p>
+              Le site peut egalement afficher des annonces via Google AdSense. Selon la localisation du visiteur et ses choix de consentement, Google et ses partenaires peuvent traiter certaines donnees techniques, cookies ou elements de stockage local pour afficher, mesurer et securiser les annonces.
+            </p>
+          ) : (
+            <p>
+              Google AdSense n est pas encore active sur le site. Si tu actives la monetisation plus tard, cette page devra rester alignee avec la configuration publicitaire et le recueil du consentement.
+            </p>
+          )}
         </div>
       </SectionCard>
 
@@ -60,7 +72,7 @@ export default function PrivacyPage() {
             Contact: <span className="theme-text-primary">{siteConfig.legal.contactEmail}</span>
           </p>
           <p>
-            Si tu ajoutes plus tard analytics, publicites personnalisees, newsletter ou formulaire, cette page devra etre completee avec les bases legales, durees de conservation, destinataires et droits applicables.
+            Pour les visiteurs situes dans l EEE, au Royaume-Uni et en Suisse, le recueil du consentement doit etre gere via une CMP compatible TCF lorsque des publicites Google sont actives.
           </p>
         </div>
       </SectionCard>

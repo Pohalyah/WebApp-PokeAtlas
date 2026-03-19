@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Manrope, Sora } from "next/font/google";
 
 import "@/app/globals.css";
+import { AdSenseScript } from "@/components/ads/adsense-script";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ThemeSwitcher } from "@/components/layout/theme-switcher";
 import { FavoritesProvider } from "@/components/providers/favorites-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { adsenseClient } from "@/lib/adsense";
 
 const bodyFont = Manrope({
   subsets: ["latin"],
@@ -45,10 +47,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>{adsenseClient ? <meta name="google-adsense-account" content={adsenseClient} /> : null}</head>
       <body className={`${bodyFont.variable} ${displayFont.variable} min-h-screen antialiased`}>
         <ThemeProvider>
           <FavoritesProvider>
             <div className="relative min-h-screen overflow-x-hidden">
+              <AdSenseScript />
               <div
                 className="pointer-events-none fixed inset-0 -z-10"
                 style={{

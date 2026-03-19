@@ -10,7 +10,7 @@ export function SiteFooter() {
             Une encyclopedie Pokemon claire, rapide et moderne, construite autour de l essentiel.
           </p>
           <p className="theme-text-muted">
-            Donnees Pokemon fournies via PokeAPI. Les informations legales ci-dessous restent a completer avant toute monétisation active.
+            Donnees Pokemon fournies via PokeAPI. Informations legales et politiques de confidentialite accessibles ci-dessous.
           </p>
         </div>
 
