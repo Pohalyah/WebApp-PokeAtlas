@@ -3,8 +3,8 @@ import { Manrope, Sora } from "next/font/google";
 
 import "@/app/globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
-import { FavoritesProvider } from "@/components/providers/favorites-provider";
 import { ThemeSwitcher } from "@/components/layout/theme-switcher";
+import { FavoritesProvider } from "@/components/providers/favorites-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const bodyFont = Manrope({
@@ -20,16 +20,19 @@ const displayFont = Sora({
 export const metadata: Metadata = {
   metadataBase: process.env.NEXT_PUBLIC_APP_URL ? new URL(process.env.NEXT_PUBLIC_APP_URL) : undefined,
   title: {
-    default: "Atlas Pokédex",
-    template: "%s | Atlas Pokédex"
+    default: "Atlas Pokedex",
+    template: "%s | Atlas Pokedex"
+  },
+  verification: {
+    google: "wxVYuiSqdStt6Uvl38taZjIS6sX19CsLOx6Alzm5SJg"
   },
   description:
-    "Une encyclopédie Pokémon moderne, premium et centrée sur l'essentiel : recherche rapide, fiche détail élégante et navigation fluide.",
-  keywords: ["Pokemon", "Pokedex", "Next.js", "PokéAPI", "encyclopedie Pokemon", "Atlas Pokedex"],
+    "Une encyclopedie Pokemon moderne, premium et centree sur l'essentiel : recherche rapide, fiche detail elegante et navigation fluide.",
+  keywords: ["Pokemon", "Pokedex", "Next.js", "PokeAPI", "encyclopedie Pokemon", "Atlas Pokedex"],
   openGraph: {
-    title: "Atlas Pokédex",
+    title: "Atlas Pokedex",
     description:
-      "Une encyclopédie Pokémon moderne, premium et centrée sur l'essentiel : recherche rapide, fiche détail élégante et navigation fluide.",
+      "Une encyclopedie Pokemon moderne, premium et centree sur l'essentiel : recherche rapide, fiche detail elegante et navigation fluide.",
     type: "website"
   }
 };
