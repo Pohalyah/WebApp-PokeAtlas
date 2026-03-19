@@ -1,0 +1,82 @@
+import type { Metadata } from "next";
+import { Manrope, Sora } from "next/font/google";
+
+import "@/app/globals.css";
+import { SiteHeader } from "@/components/layout/site-header";
+import { FavoritesProvider } from "@/components/providers/favorites-provider";
+import { ThemeSwitcher } from "@/components/layout/theme-switcher";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+
+const bodyFont = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body"
+});
+
+const displayFont = Sora({
+  subsets: ["latin"],
+  variable: "--font-display"
+});
+
+export const metadata: Metadata = {
+  metadataBase: process.env.NEXT_PUBLIC_APP_URL ? new URL(process.env.NEXT_PUBLIC_APP_URL) : undefined,
+  title: {
+    default: "Atlas Pokédex",
+    template: "%s | Atlas Pokédex"
+  },
+  description:
+    "Une encyclopédie Pokémon moderne, premium et centrée sur l'essentiel : recherche rapide, fiche détail élégante et navigation fluide.",
+  keywords: ["Pokemon", "Pokedex", "Next.js", "PokéAPI", "encyclopedie Pokemon", "Atlas Pokedex"],
+  openGraph: {
+    title: "Atlas Pokédex",
+    description:
+      "Une encyclopédie Pokémon moderne, premium et centrée sur l'essentiel : recherche rapide, fiche détail élégante et navigation fluide.",
+    type: "website"
+  }
+};
+
+export default function RootLayout({
+  children
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="fr">
+      <body className={`${bodyFont.variable} ${displayFont.variable} min-h-screen antialiased`}>
+        <ThemeProvider>
+          <FavoritesProvider>
+            <div className="relative min-h-screen overflow-x-hidden">
+              <div
+                className="pointer-events-none fixed inset-0 -z-10"
+                style={{
+                  background:
+                    "radial-gradient(circle at top, var(--page-backdrop-highlight) 0%, var(--page-backdrop-mid) 36%, var(--app-bg) 100%)"
+                }}
+              />
+              <div
+                className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[28rem]"
+                style={{
+                  background: "radial-gradient(circle at top, var(--page-top-glow) 0%, transparent 58%)"
+                }}
+              />
+              <div
+                className="pointer-events-none fixed inset-y-0 left-0 -z-10 w-[20vw] min-w-[120px] opacity-90"
+                style={{
+                  background: "radial-gradient(circle at left center, var(--page-accent-left) 0%, transparent 72%)"
+                }}
+              />
+              <div
+                className="pointer-events-none fixed inset-y-0 right-0 -z-10 w-[20vw] min-w-[120px] opacity-90"
+                style={{
+                  background: "radial-gradient(circle at right center, var(--page-accent-right) 0%, transparent 72%)"
+                }}
+              />
+              <SiteHeader />
+              <main>{children}</main>
+              <ThemeSwitcher />
+            </div>
+          </FavoritesProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
